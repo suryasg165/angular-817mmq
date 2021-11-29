@@ -1,0 +1,33 @@
+.card-items-container {
+  .title-align {
+    text-align: center;
+  }
+
+  .flex-container {
+    display: inline-flex;
+    flex-wrap: wrap;
+
+    mat-card {
+      border: 1px solid #ddd;
+      cursor: pointer;
+      min-height: 150px;
+
+      &:hover {
+        color: white;
+        background-color: black;
+      }
+    }
+  }
+
+  .flex-container > div {
+    margin: 6px;
+  }
+}
+
+::ng-deep {
+  .flex-container {
+    .mat-card-header-text {
+      margin: 0;
+    }
+  }
+}

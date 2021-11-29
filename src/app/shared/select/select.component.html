@@ -1,0 +1,9 @@
+<h2>Select the item type</h2>
+<mat-form-field appearance="fill">
+    <mat-label>Select</mat-label>
+  <mat-select (selectionChange)="onSelectionChange($event.value)">
+    <mat-option *ngFor="let item of itemsList" [value]="item.value">
+      {{item.key}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

@@ -1,0 +1,26 @@
+<div class="card-items-container">
+  <div class="title-align">
+  </div>
+  <div fxLayout="row" fxLayout.xs="column" class="flex-container">
+    <ng-container *ngIf="cardItems.length>0;else norecord">
+      <div *ngFor="let item of cardItems;">
+        <ng-container>
+        <mat-card (click)="onSelection(item)">
+          <mat-card-header>
+            <mat-card-title>
+              <h3>{{item?.type}}</h3>
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div>Time: {{item?.time|date:'medium'}}</div>
+            <div>Type: {{item?.by}}</div>
+          </mat-card-content>
+        </mat-card>
+      </ng-container>
+      </div>
+    </ng-container>
+    <ng-template #norecord>
+      <ng-container><h3>No Record Matches To Timestamp Configuration.please change the Configuration</h3></ng-container>
+  </ng-template>
+  </div>
+</div>
