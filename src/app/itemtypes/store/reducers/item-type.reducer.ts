@@ -1,35 +1,37 @@
-import { DefaultItemState } from 'src/app/constant/items-constant';
-import { ItemTypeActions, ItemTypeActionTypes } from '../actions/item-type.actions';
+import { DefaultItemState } from '../../../constant/items-constant';
+import {
+  ItemTypeActions,
+  ItemTypeActionTypes,
+} from '../actions/item-type.actions';
 
 export const InitialItemTypeState = {
-  item: [DefaultItemState]
+  item: [DefaultItemState],
 };
 export function itemTypeReducer(
   state: any = InitialItemTypeState,
   action: ItemTypeActions
 ): any {
-
   switch (action.type) {
     case ItemTypeActionTypes.LoadTopStories:
       return {
-        ...state
+        ...state,
       };
     case ItemTypeActionTypes.LoadTopStoriesError: {
       return {
-        ...state
+        ...state,
       };
     }
     case ItemTypeActionTypes.LoadStoriesByIdSuccess: {
       const payload = action.payload;
-      return { 
-        ...state,
-        item:[...state.item, payload]
-      };
-    }
-    case ItemTypeActionTypes.DeleteStoriesDetails:{
       return {
         ...state,
-        item:[]
+        item: [...state.item, payload],
+      };
+    }
+    case ItemTypeActionTypes.DeleteStoriesDetails: {
+      return {
+        ...state,
+        item: [],
       };
     }
 

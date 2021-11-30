@@ -4,8 +4,11 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { ItemTypeContainerComponent } from './item-type-container.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { provideMockStore, MockStore } from '@ngrx/store/testing';
-import { SharedModule } from 'src/app/shared/shared.module';
-import { DefaultItemState, listOfItemTypes } from 'src/app/constant/items-constant';
+import { SharedModule } from '../../../shared/shared.module';
+import {
+  DefaultItemState,
+  listOfItemTypes,
+} from '../../constant/items-constant';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { getItemState } from '../../store/selectors/item-type.selectors';
 
@@ -14,27 +17,22 @@ describe('ItemTypeContainerComponent', () => {
   let fixture: ComponentFixture<ItemTypeContainerComponent>;
   const initialState = DefaultItemState;
   let store: MockStore;
-  
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
         HttpClientTestingModule,
         SharedModule,
-        BrowserAnimationsModule
-    ],
-      declarations: [ ItemTypeContainerComponent ],
+        BrowserAnimationsModule,
+      ],
+      declarations: [ItemTypeContainerComponent],
       providers: [
         provideMockStore({
-          selectors: [
-            { selector: getItemState, value: [DefaultItemState] }
-          ],
+          selectors: [{ selector: getItemState, value: [DefaultItemState] }],
         }),
       ],
-
-     
-    })
-    .compileComponents();
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -45,9 +43,7 @@ describe('ItemTypeContainerComponent', () => {
     fixture.detectChanges();
   });
   beforeEach(() => {
-    
-    component.listOfItemTypes=listOfItemTypes;
-    
+    component.listOfItemTypes = listOfItemTypes;
   });
 
   it('should create', () => {
